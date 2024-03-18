@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./app.js" defer></script>
+</head>
+
+<body class="m-2">
+    <header class="p-2">
+        <h1 class="text-4xl mb-6">
+            Management System
+        </h1>
+        <ul class="grid grid-cols-2 items-center gap-1" style="margin: 0 25vw;">
+            <li class="text-center">
+                <button data-system-controls='create' class="bg-zinc-800 text-white text-center w-full p-2">Create</button>
+            </li>
+            <li class="text-center">
+                <button data-system-controls="update" class="bg-zinc-800 text-white text-center w-full p-2">Update</button>
+            </li>
+            <li class="text-center">
+                <button data-system-controls="delete" class="bg-zinc-800 text-white text-center w-full p-2">Delete</button>
+            </li>
+        </ul>
+    </header>
+    <hr>
+    <h2 class="pl-8 p-4 text-2xl">Manage Challenges:</h2>
+    <main class="">
+        <div class="grid grid-cols-3">
+            <section class="text-center">
+                <h3>Backlog</h3>
+                <!-- list for backlog -->
+                <ul data-column="backlog">
+                    <li class="card bg-zinc-800 text-white py-4 m-4 rounded-lg">
+                        <h4>Project Title: JSL06</h4>
+                        <div>
+                            <ul>
+                                <li>About:</li>
+                                <li>Due Date: </li>
+                            </ul>
+                        </div>
+                        <button class="px-2 py-1 bg-green-300 rounded-lg text-black hover:bg-green-600">Activate</button>
+                    </li>
+                </ul>
+            </section>
+            <section class="text-center">
+                <h3>In Progress</h3>
+                <!-- list for in progress -->
+                <ul data-column="in-progress">
+                    <li class="card bg-zinc-800 text-white py-4 m-4 rounded-lg">
+                        <h4>Project Title: JSL07</h4>
+                        <div>
+                            <ul>
+                                <li>About:</li>
+                                <li>Due Date: </li>
+                            </ul>
+                        </div>
+                        <button class="px-2 py-1 bg-blue-300 text-black rounded-lg hover:bg-blue-600">Deactivate</button>
+                        <button class="px-2 py-1 bg-green-300 text-black rounded-lg hover:bg-green-600">Complete</button>
+                    </li>
+                </ul>
+            </section>
+            <section class="text-center">
+                <h3>Complete</h3>
+                <!-- list for completed challenges / tasks -->
+                <ul data-column="complete px-5">
+                    <li class="card bg-zinc-800 text-white py-4 m-4 rounded-lg">
+                        <h4>Project Title: JSL01</h4>
+                        <div>
+                            <ul>
+                                <li>About:</li>
+                            </ul>
+                        </div>
+                        <button class="px-2 py-1 bg-red-300 text-black rounded-lg hover:bg-red-600">Delete</button>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
