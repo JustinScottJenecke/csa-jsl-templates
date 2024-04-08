@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS | Create Task</title>
+    <script src="./lessons/week-3.js" defer></script>
+</head>
+<body>
+    <h2>
+        Create New Task
+    </h2>
+    <form action="#" method="get">
+        <input class="create-form-input-field" type="text" placeholder="task title" data-create-task-form="task-title">
+        <input class="create-form-input-field" type="text" placeholder="summary of task" data-create-task-form="task-about">
+        <input class="create-form-input-field" type="text" placeholder="due date" data-create-task-form="task-due">
+        <input type="submit" value="Create" data-create-task-form="create-task-btn">
+    </form>
+
+    <hr>
+
+    <form action="./index.html" method="get">
+        <input type="text" value="operation-cancelled" hidden>
+        <input type="submit" value="Cancel">
+    </form>
+<!-- 
+    <script>
+        console.log(
+            document.querySelector('[data-id="box1"]')
+        )
+    </script> -->
+</body>
+</html>
