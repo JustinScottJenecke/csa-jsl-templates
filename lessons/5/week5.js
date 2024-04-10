@@ -6,6 +6,13 @@
  * 3 - Functions
  */
 
+// 3 different syntax scope in js
+/**
+ * 1 - global scripting/functional syntax
+ * 2 - object literal syntax / json
+ * 3 - class based syntax
+ */
+
 // everything in javascript is an object
 
 const theObject = {} // object
@@ -49,15 +56,18 @@ class TodoItem {
     }
 }
 
-// object == instances of a class
-const item1 = new TodoItem("go on lunch", "fermngoermg", new Date())
+// object == instance of a class
+const todo1 = new TodoItem("go on lunch", "fermngoermg", new Date())
 // const item3 = new TodoItem("start revising content on object", "go through JSL 7", new Date())
 
-console.log(item1)
+// console.log("item1's title is ==", todo1.title)
+
+// let RandomId = todo1.generateId();
+// console.log("rand id is ===", RandomId)
 
 
 // json synatx / object literal syntax
-const item2 = {
+const todo2 = {
     id: 1,
     title: "end the session",
     description: "end the session cause its taking too long",
@@ -67,11 +77,32 @@ const item2 = {
     }
 }
 
-console.log(item2)
+// resuable
+const postponeByOneDay = (todoObject) => {
 
-// 3 different syntax scope in js
-/**
- * 1 - global scripting/functional syntax
- * 2 - object literal syntax / json
- * 3 - class based syntax
- */
+    todoObject.dueDate.setDate( todoObject.dueDate.getDate() + 1);
+}
+
+// not resuable
+const postponesTodo1DueDate = () => {
+
+    todo1.dueDate.setDate( todo1.dueDate.getDate() + 1);
+}
+
+console.log("Todo 2")
+console.log(todo2.dueDate)
+postponeByOneDay(todo2)
+postponeByOneDay(todo2)
+postponesTodo1DueDate(todo2)
+postponesTodo1DueDate(todo2)
+postponeByOneDay(todo2)
+console.log(todo2.dueDate)
+
+console.log("\nTodo 1")
+console.log(todo1.dueDate)
+postponeByOneDay(todo1)
+postponeByOneDay(todo1)
+postponeByOneDay(todo1)
+postponeByOneDay(todo1)
+postponesTodo1DueDate()
+console.log(todo1.dueDate)
