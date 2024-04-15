@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <script src="./app.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Todo App</h1>
+        <button id="create-todo-form-toggle-btn">Add Todo</button>
+        <div id="create-todo-form">
+            <form action="">
+                <input type="text" placeholder="todo name" id="todo-name">
+                <input type="datetime-local" name="todo-due-date" id="todo-due-date">
+                <input type="button" value="Create" id="todo-create">
+            </form>
+        </div>
+    </header>
+    <br>
+    <hr>
+    <main>
+        <h2>Todo List</h2>
+        <ol>
+            <!-- sample todo -->
+            <li>
+                <h3>Todo name: <span data-todo="name"></span> </h3>
+                <ul>
+                    <li>Id: <span data-todo="id">example injection</span> </li>
+                    <li>Due Date:<span data-todo="due-date"></span> </li>
+                    <li>
+                        Completed: <input type="checkbox" name="todo-complete" data-todo="completed">
+                    </li>
+                </ul>
+            </li>
+            <!-- sample todo -->
+            <li>
+                <h3>Todo name: <span data-todo="name"></span> </h3>
+                <ul>
+                    <li>Id: <span data-todo="id">example injection</span> </li>
+                    <li>Due Date:<span data-todo="due-date"></span> </li>
+                    <li>
+                        Completed: <input type="checkbox" name="todo-complete" data-todo="completed">
+                    </li>
+                </ul>
+            </li>
+            <!-- sample todo -->
+            <li>
+                <h3>Todo name: <span data-todo="name"></span> </h3>
+                <ul>
+                    <li>Id: <span data-todo="id">example injection</span> </li>
+                    <li>Due Date:<span data-todo="due-date"></span> </li>
+                    <li>
+                        Completed: <input type="checkbox" name="todo-complete" data-todo="completed">
+                    </li>
+                    <li> <button>Delete</button></li>
+                </ul>
+
+            </li>
+        </ol>
+    </main>
+</body>
+
+</html>
