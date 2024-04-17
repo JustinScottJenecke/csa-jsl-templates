@@ -45,11 +45,11 @@ const createTodoForm = {
         return '#' + Math.floor(Math.random() * 9999) + 1;
     },
     // create a todo item object
-    createTodoItem: (event) => {
+    createTodoObject: (event) => {
         const TodoItem = {
-            id: generateId(),
-            name: nameField.value,
-            dueDate: new Date(dueDateField.value),
+            id: createTodoForm.generateId(),
+            name: createTodoForm.domNodes.nameField.value,
+            dueDate: new Date(createTodoForm.domNodes.dueDateField.value),
             completed: false
         }
         return TodoItem
@@ -70,7 +70,6 @@ const createTodoForm = {
                         /* html */
                         : `<li>Completed: <input type="checkbox" name="todo-complete" data-todo="completed"></li>`
                     }
-                    
                     <li><button data-todo="delete-btn">Delete</button></li>
                 </ul>
             </li>
@@ -87,28 +86,50 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
+const fetchData = () => {
 // return Promise
 fetch('./data.json')
     .then( (response) => { 
         return response.json()
     })
     .then(data => {  
-        document.querySelector('#todo-list').innerHTML += data
-        // return console.log(data)
+        data.forEach(barOne => {
+            document.querySelector('#todo-list').innerHTML += createTodoForm.createTodoElement(barOne)
+        });
+        return data
     })
     .catch(error => {
         return console.error('Error:', error)
     });
+}
 
+// ------------ Event Listeners -------------
 
-fetch('./data.json')
-    .then(response => response.json()) // implicit return statement
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+document.addEventListener('DOMContentLoaded', () => {
+    fetchData()
+})
 
+createTodoForm.domNodes.createBtn.addEventListener('click', () => {
+    const newTodo = createTodoForm.createTodoObject()
+    document.querySelector('#todo-list').innerHTML += createTodoForm.createTodoElement(newTodo)
+})
 
-/**
- * create data structure for storing todo items 
- * load in dummy todo items from local storage - setup local storage, load in data from local storage
- * setup local storage with data from json file
+/** ----- Initial load / startup of App -----
+ * 
+ * if storage does not exist
+ *      create a localStorage object to store TodoItems
+ * else
+ *      load todoitems from localstorage into array (local variable)
+ *      populate dom with todoitems in array
+ */
+
+/** ----- Creating  Todos -----
+ * 
+ * AKA State management
+ * 
+ * when create btn is clicked && todo is created
+ *      add todo to local array
+ *      update localStorage with updated local array
+ *          Optional - if issues with syncing you can update local with storage again
+ *      third and final step is update DOM with updated local array
  */
