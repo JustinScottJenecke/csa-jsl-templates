@@ -1,0 +1,6 @@
+{
+    "id": "string (#94866)",
+    "name": "string",
+    "dueDate": "Date",
+    "completed": "boolean (default == false)"
+}
