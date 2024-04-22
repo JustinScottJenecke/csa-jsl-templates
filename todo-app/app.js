@@ -1,3 +1,8 @@
+import {fetchData} from "./utils/fetchTodos.js";
+
+const DATASTORE = [ /* ...TodoItems */ ]    
+// database : SQL
+
 // -------- hiding and showing create form ----------
 
 // encapsulation
@@ -86,27 +91,10 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-const fetchData = () => {
-// return Promise
-fetch('./data.json')
-    .then( (response) => { 
-        return response.json()
-    })
-    .then(data => {  
-        data.forEach(barOne => {
-            document.querySelector('#todo-list').innerHTML += createTodoForm.createTodoElement(barOne)
-        });
-        return data
-    })
-    .catch(error => {
-        return console.error('Error:', error)
-    });
-}
-
 // ------------ Event Listeners -------------
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchData()
+    fetchData('./data.json', createTodoForm)
 })
 
 createTodoForm.domNodes.createBtn.addEventListener('click', () => {
@@ -116,6 +104,7 @@ createTodoForm.domNodes.createBtn.addEventListener('click', () => {
 
 /** ----- Initial load / startup of App -----
  * 
+ *      --- Singleton Pattern ---
  * if storage does not exist
  *      create a localStorage object to store TodoItems
  * else
