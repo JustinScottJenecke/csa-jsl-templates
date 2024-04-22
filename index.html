@@ -1,1 +1,67 @@
-this page does nothing
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    this page does nothing
+    except now, it does something. check the console
+
+
+    <input type="number" name="" id="theNumber">
+    <input type="button" value="submit" id="theBtn">
+
+
+</body>
+
+</html>
+
+<script>
+
+    const STORAGE_KEY = 'bcl-2401-jsl-capstone-justin-key'
+
+    let numbers = [7, 6, 3, 6];
+    let todos = [
+        {
+            "id": "#19503",
+            "name": "learn .NET",
+            "dueDate": "02/05/2022",
+            "completed": false
+        },
+        {
+            "id": "#18513",
+            "name": "Half day.. go home!",
+            "dueDate": "08/05/2022",
+            "completed": false
+        },
+        {
+            "id": "#19000",
+            "name": "Prep for Capstone",
+            "dueDate": "07/05/2022",
+            "completed": false
+        }
+    ]
+
+    // save to storage
+    // args: {key, string}
+
+
+    if ( !localStorage.getItem(STORAGE_KEY) ) {
+        // create database if it doesnt exist
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos) )
+        console.log('storage instance was created')
+    } else {
+        console.log('storage instance already exists. not going create new instance')
+    }
+
+    console.log(
+        // is there data with this key that already exists?
+        localStorage.getItem(STORAGE_KEY)
+    )
+
+</script>
